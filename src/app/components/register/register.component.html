@@ -1,0 +1,56 @@
+<div class="container">
+    <mat-card>
+        <mat-card-title>Registrazione</mat-card-title>
+        <form [formGroup]="registerFrm"
+              (ngSubmit)="doRegister()">
+            <mat-card-content>
+                <div class="form-vertical">
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Username</mat-label>
+                        <input matInput
+                               formControlName="username"
+                               type="text">
+                        <mat-error *ngIf="registerFrm.get('username')?.errors?.required">Obbligatorio</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Nome</mat-label>
+                        <input matInput
+                               formControlName="nome"
+                               type="text">
+                        <mat-error *ngIf="registerFrm.get('nome')?.errors?.required">Obbligatorio</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Cognome</mat-label>
+                        <input matInput
+                               formControlName="cognome"
+                               type="text">
+                        <mat-error *ngIf="registerFrm.get('cognome')?.errors?.required">Obbligatorio</mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Email</mat-label>
+                        <input matInput
+                               formControlName="email"
+                               type="email">
+                        <mat-error *ngIf="registerFrm.get('email')?.errors?.required">Obbligatorio</mat-error>
+                        <mat-error *ngIf="registerFrm.get('email')?.errors?.email">Inserire una mail valida</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Password</mat-label>
+                        <input matInput
+                               formControlName="password"
+                               type="password">
+                        <mat-error *ngIf="registerFrm.get('password')?.errors?.required">Obbligatorio</mat-error>
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button
+                        [routerLink]="['/login']">Torna alla login</button>
+                <button mat-button
+                        type="submit">Registrati</button>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</div>

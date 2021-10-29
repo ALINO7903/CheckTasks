@@ -1,0 +1,22 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.grid {
+  padding: 16px;
+  position: relative;
+}
+
+mat-card {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.fab {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+}
+::root {
+  position: relative;
+}

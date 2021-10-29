@@ -1,0 +1,35 @@
+<mat-toolbar color="secondary">
+  <mat-toolbar-row>
+    <span>CheckTasks</span>
+    <span class="spacer"></span>
+    <button mat-button
+            [matMenuTriggerFor]="menuToolbar">{{ getLoggedUser() }}</button>
+    <mat-menu #menuToolbar="matMenu">
+      <button mat-menu-item
+              (click)="logout()">
+        <mat-icon>logout</mat-icon> Esci
+      </button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
+<div class="grid">
+  <mat-grid-list [cols]="columns" rowHeight="3:1" gutterSize="16px">
+
+    <mat-grid-tile *ngFor="let task of tasks">
+      <mat-card>
+        <mat-card-title>{{ task.project }}</mat-card-title>
+        <mat-card-subtitle>{{ task.from.nome }} {{ task.from.cognome }}</mat-card-subtitle>
+        <mat-card-content>
+          <small>Da completare per il: {{task.expires | date:"fullDate"}}</small>
+
+          <br>
+          <div>{{task.text}}</div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<button mat-fab color="primary" class="fab">
+  <mat-icon>add</mat-icon>
+</button>

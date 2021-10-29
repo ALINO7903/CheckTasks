@@ -1,0 +1,32 @@
+<div class="container">
+    <mat-card>
+        <mat-card-title>Effettua l'accesso</mat-card-title>
+        <form [formGroup]="loginFrm" (ngSubmit)="doLogin()">
+            <mat-card-content>
+                <div class="form-vertical">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Email</mat-label>
+                        <input matInput
+                               formControlName="email"
+                               type="email">
+                        <mat-error *ngIf="loginFrm.get('email')?.errors?.required">Obbligatorio</mat-error>
+                        <mat-error *ngIf="loginFrm.get('email')?.errors?.email">Inserire una mail valida</mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Password</mat-label>
+                        <input matInput
+                               formControlName="password"
+                               type="password">
+                        <mat-error *ngIf="loginFrm.get('password')?.errors?.required">Obbligatorio</mat-error>
+                    </mat-form-field>
+                </div>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button
+                        [routerLink]="['/register']">Registrati</button>
+                <button mat-button
+                        type="submit">Accedi</button>
+            </mat-card-actions>
+        </form>
+    </mat-card>
+</div>
